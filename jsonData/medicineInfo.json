@@ -1,0 +1,35 @@
+[
+  {
+    "name":"name",
+    "detailsModel": [
+      {
+        "medicineName":"medicineName",
+        "medicineImage":"medicineImage",
+        "medicineDetails":"medicineDetails",
+        "medicineIndication":"medicineIndication",
+        "medicineUses":"medicineUses",
+        "medicineAlert":"medicineAlert",
+        "medicineSideEffects":"medicineSideEffects",
+        "medicineSideSubIndications":"medicineSideSubIndications",
+        "medicineSideEffectWithOthersMedicine":"medicineSideEffectWithOthersMedicine",
+        "medicineSideEffectForLadies":"medicineSideEffectForLadies",
+        "medicineForChild":"medicineForChild",
+        "medicineForContents":"medicineForContents"
+      },
+      {
+        "medicineName":"medicineName",
+        "medicineImage":"medicineImage",
+        "medicineDetails":"medicineDetails",
+        "medicineIndication":"medicineIndication",
+        "medicineUses":"medicineUses",
+        "medicineAlert":"medicineAlert",
+        "medicineSideEffects":"medicineSideEffects",
+        "medicineSideSubIndications":"medicineSideSubIndications",
+        "medicineSideEffectWithOthersMedicine":"medicineSideEffectWithOthersMedicine",
+        "medicineSideEffectForLadies":"medicineSideEffectForLadies",
+        "medicineForChild":"medicineForChild",
+        "medicineForContents":"medicineForContents"
+      }
+    ]
+  }
+]
