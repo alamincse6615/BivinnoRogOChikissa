@@ -1,7 +1,10 @@
+import 'package:bivioonrogochikissa/model/details.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
-  const Details({Key? key}) : super(key: key);
+  String name;
+  DetailsModel detailsModel;
+   Details(this.name,this.detailsModel);
 
   @override
   _DetailsState createState() => _DetailsState();
@@ -12,10 +15,10 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Details page"),
+        title: Text(widget.name),
 
       ),
-      body: Center(child: Text("all details ")),
+      body: Center(child: Text(widget.detailsModel.medicineName.toString() + "\n\n"+widget.detailsModel.medicineDetails.toString())),
     );
   }
 }
