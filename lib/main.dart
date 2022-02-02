@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:bivioonrogochikissa/view/home.dart';
+import 'package:bivioonrogochikissa/view/category.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     Timer(Duration(seconds: 3), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>CategoryPage()));
     });
     // TODO: implement initState
     super.initState();

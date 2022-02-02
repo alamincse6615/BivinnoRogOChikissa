@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bivioonrogochikissa/model/categorymodel.dart';
+import 'package:bivioonrogochikissa/view/about.dart';
 import 'package:bivioonrogochikissa/view/details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,6 +26,32 @@ class _CategoryPageState extends State<CategoryPage> {
 
       appBar: AppBar(
         title: Text("Category"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.share_sharp,
+              color: Colors.white,
+            ),
+            onPressed: () {},
+          ),
+          PopupMenuButton(
+              itemBuilder: (context){
+                return [
+                  PopupMenuItem(child: Text("About Us"),
+                    onTap:() {
+                      Navigator.push(
+                          context, MaterialPageRoute(
+                          builder: (context)=>AboutUS()));
+                    }
+                  ),
+                  PopupMenuItem(child: Text("Privacy & Policy")),
+                  PopupMenuItem(child: Text("Exit")),
+
+                ];
+              },
+              )
+        ],
       ),
       body: FutureBuilder(
         future: jsonfunction(),
@@ -34,7 +61,7 @@ class _CategoryPageState extends State<CategoryPage> {
               itemCount: list.length,
               itemBuilder: (context, index) {
                 return Card(
-                  elevation: 10,
+                  elevation: 20,
                   child: InkWell(
                     child: ListTile(
                       tileColor: Colors.white,

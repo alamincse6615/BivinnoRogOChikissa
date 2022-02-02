@@ -18,7 +18,24 @@ class _DetailsState extends State<Details> {
         title: Text(widget.name),
 
       ),
-      body: Center(child: Text(widget.detailsModel.medicineName.toString() + "\n\n"+widget.detailsModel.medicineDetails.toString())),
+      body: ListView(
+        children: [
+          Container(child:
+          Text(widget.detailsModel.medicineName.toString() +
+              "\n\n"+widget.detailsModel.medicineDetails.toString()+
+              "\n\n"+widget.detailsModel.medicineIndication.toString()+
+              "\n\n"+widget.detailsModel.medicineUses.toString()+
+              "\n\n"+widget.detailsModel.medicineAlert.toString()+
+              "\n\n"+widget.detailsModel.medicineSideEffects.toString()+
+              "\n\n"+widget.detailsModel.medicineSideSubIndications.toString()+
+              "\n\n"+widget.detailsModel.medicineSideEffectWithOthersMedicine.toString()+
+              "\n\n"+widget.detailsModel.medicineSideEffectForLadies.toString()+
+              "\n\n"+widget.detailsModel.medicineForChild.toString()+
+              "\n\n"+widget.detailsModel.medicineForContents.toString()
+          )
+          )
+        ],
+      )
     );
   }
 }
