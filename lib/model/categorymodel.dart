@@ -2,15 +2,17 @@ import 'details.dart';
 
 class CategoryModel{
   String? name;
-  DetailsModel? detailsModel;
+  List<DetailsModel>? detailsModellist;
 
-  CategoryModel(this.name, this.detailsModel);
+  CategoryModel({this.name, this.detailsModellist});
 
   CategoryModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     if (json['detailsModel'] != null) {
+      detailsModellist = <DetailsModel>[];
       json['detailsModel'].forEach((v) {
-        detailsModel = new DetailsModel.fromJson(v);
+        if(v["medicineImage"]!=null)
+          detailsModellist!.add(new DetailsModel.fromJson(v));
       });
     }
   }

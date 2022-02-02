@@ -3,39 +3,44 @@ import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
   String name;
-  DetailsModel detailsModel;
-   Details(this.name,this.detailsModel);
+  List<DetailsModel> detailsModellist;
+  Details(this.name,this.detailsModellist);
 
   @override
   _DetailsState createState() => _DetailsState();
 }
 
 class _DetailsState extends State<Details> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.name),
-
       ),
-      body: ListView(
-        children: [
-          Container(child:
-          Text(widget.detailsModel.medicineName.toString() +
-              "\n\n"+widget.detailsModel.medicineDetails.toString()+
-              "\n\n"+widget.detailsModel.medicineIndication.toString()+
-              "\n\n"+widget.detailsModel.medicineUses.toString()+
-              "\n\n"+widget.detailsModel.medicineAlert.toString()+
-              "\n\n"+widget.detailsModel.medicineSideEffects.toString()+
-              "\n\n"+widget.detailsModel.medicineSideSubIndications.toString()+
-              "\n\n"+widget.detailsModel.medicineSideEffectWithOthersMedicine.toString()+
-              "\n\n"+widget.detailsModel.medicineSideEffectForLadies.toString()+
-              "\n\n"+widget.detailsModel.medicineForChild.toString()+
-              "\n\n"+widget.detailsModel.medicineForContents.toString()
-          )
-          )
-        ],
+      body: ListView.builder(
+          itemCount: widget.detailsModellist.length,
+          itemBuilder: (context,index){
+            return  Container(child:
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(widget.detailsModellist[index].medicineName.toString() +
+                  "\n\n"+widget.detailsModellist[index].medicineDetails.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineIndication.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineUses.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineAlert.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineSideEffects.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineSideSubIndications.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineSideEffectWithOthersMedicine.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineSideEffectForLadies.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineForChild.toString()+
+                  "\n\n"+widget.detailsModellist[index].medicineForContents.toString()+"\n\n"
+              ),
+            )
+            );
+          }
       )
     );
   }
 }
+

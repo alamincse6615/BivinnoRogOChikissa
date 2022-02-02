@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AboutUS extends StatefulWidget {
-  const AboutUS({Key? key}) : super(key: key);
+  String topic;
+  AboutUS(this.topic);
 
   @override
   _AboutUSState createState() => _AboutUSState();
@@ -12,9 +13,9 @@ class _AboutUSState extends State<AboutUS> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Us'),
+        title: widget.topic=="about"?Text("About Page"):Text("Privacy Policy")
       ),
-      body: Column(
+      body: widget.topic=="about"?Column(
         children: [
           CircleAvatar(
             backgroundImage: AssetImage('images/profile.jpg'),
@@ -30,7 +31,9 @@ class _AboutUSState extends State<AboutUS> {
           )
 
         ],
-      ),
+      ):Column(children: [
+        Text("")
+      ],),
 
     );
   }

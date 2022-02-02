@@ -36,17 +36,44 @@ class _CategoryPageState extends State<CategoryPage> {
             onPressed: () {},
           ),
           PopupMenuButton(
+            onSelected: (val){
+              switch(val){
+                case "about":
+                  Navigator.push(
+                      context, MaterialPageRoute(
+                      builder: (context)=>AboutUS(
+                        "about"
+                      )));
+                break;
+
+                case "privacy":
+                  Navigator.push(
+                      context, MaterialPageRoute(
+                      builder: (context)=>AboutUS(
+                        "privacy"
+                      )));
+                  break;
+
+                case "exit":
+
+                  break;
+
+
+              }
+            },
               itemBuilder: (context){
                 return [
                   PopupMenuItem(child: Text("About Us"),
-                    onTap:() {
-                      Navigator.push(
-                          context, MaterialPageRoute(
-                          builder: (context)=>AboutUS()));
-                    }
+                      value: "about",
                   ),
-                  PopupMenuItem(child: Text("Privacy & Policy")),
-                  PopupMenuItem(child: Text("Exit")),
+                  PopupMenuItem(
+                      child: Text("Privacy & Policy"),
+                    value: "privacy",
+                  ),
+                  PopupMenuItem(
+                      child: Text("Exit"),
+                    value: "exit",
+                  ),
 
                 ];
               },
@@ -56,29 +83,46 @@ class _CategoryPageState extends State<CategoryPage> {
       body: FutureBuilder(
         future: jsonfunction(),
         builder: (context,jsonget){
-          var list = jsonget.data as List<CategoryModel>;
-          return ListView.builder(
-              itemCount: list.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  elevation: 20,
-                  child: InkWell(
-                    child: ListTile(
-                      tileColor: Colors.white,
-                      title: Text(
-                        list[index].name.toString(),
-                        style: TextStyle(color: Colors.black),),
-                      trailing: Icon(Icons.arrow_forward_ios,color: Colors.black,),
-                    ),
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Details(
+          if(jsonget.hasError){
+            return Center(
+              child: Container(
+                child: Text("Loading..."),
+              ),
+            );
+          }
+          else if (jsonget.hasData){
+            List<CategoryModel> list = jsonget.data as List<CategoryModel>;
+            return ListView.builder(
+                itemCount: list.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 20,
+                    child: InkWell(
+                      child: ListTile(
+                        tileColor: Colors.white,
+                        title: Text(
                           list[index].name.toString(),
-                          list[index].detailsModel!
-                      )));
-                    },
-                  ),
-                );
-              });
+                          style: TextStyle(color: Colors.black),),
+                        trailing: Icon(Icons.arrow_forward_ios,color: Colors.black,),
+                      ),
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Details(
+                            list[index].name.toString(),
+                            list[index].detailsModellist!
+                        )));
+                      },
+                    ),
+                  );
+                });
+          }
+          else{
+            return Center(
+              child: Container(
+                child: Text("Loading......"),
+              ),
+            );
+          }
+
         },
       )
     );
