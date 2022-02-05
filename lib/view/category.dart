@@ -6,6 +6,7 @@ import 'package:bivioonrogochikissa/view/about.dart';
 import 'package:bivioonrogochikissa/view/details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -23,6 +24,15 @@ class _CategoryPageState extends State<CategoryPage> {
 
   }
 
+  Future<void> share() async {
+    await FlutterShare.share(
+        title: 'Example share',
+        text: 'Example share text',
+        linkUrl: 'https://play.google.com/store/apps/details?id=com.ninty.bivioonrogochikissa',
+        chooserTitle: 'Example Chooser Title'
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +46,9 @@ class _CategoryPageState extends State<CategoryPage> {
               Icons.share_sharp,
               color: Colors.white,
             ),
-            onPressed: ()async {
-              final url='https://play.google.com';
-              if(await canLaunch(url)){
-              await launch(url);
-              }
-            },
+            onPressed: (){
+              share();
+            }
           ),
           PopupMenuButton(
             onSelected: (val){
