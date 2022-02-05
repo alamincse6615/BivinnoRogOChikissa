@@ -27,19 +27,19 @@ class DetailsModel{
       this.medicineForContents);
 
   DetailsModel.fromJson(Map<String, dynamic> json) {
-    medicineName = json['medicineName'];
-    medicineImage = json['medicineImage'];
-    medicineDetails = json['medicineDetails'];
-    medicineIndication = json['medicineIndication'];
-    medicineUses = json['medicineUses'];
-    medicineAlert = json['medicineAlert'];
-    medicineSideEffects = json['medicineSideEffects'];
-    medicineSideSubIndications = json['medicineSideSubIndications'];
+    medicineName = json['medicineName']??"";
+    medicineImage = json['medicineImage']??"";
+    medicineDetails = json['medicineDetails']??"";
+    medicineIndication = json['medicineIndication']??"";
+    medicineUses = json['medicineUses']??"";
+    medicineAlert = json['medicineAlert']??"";
+    medicineSideEffects = json['medicineSideEffects']??"";
+    medicineSideSubIndications = json['medicineSideSubIndications']??"Correction";
     medicineSideEffectWithOthersMedicine =
-    json['medicineSideEffectWithOthersMedicine'];
-    medicineSideEffectForLadies = json['medicineSideEffectForLadies'];
-    medicineForChild = json['medicineForChild'];
-    medicineForContents = json['medicineForContents'];
+    json['medicineSideEffectWithOthersMedicine']??"";
+    medicineSideEffectForLadies = json['medicineSideEffectForLadies']??"";
+    medicineForChild = json['medicineForChild']??"";
+    medicineForContents = json['medicineForContents']??"";
   }
 
 }

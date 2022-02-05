@@ -21,23 +21,90 @@ class _DetailsState extends State<Details> {
       body: ListView.builder(
           itemCount: widget.detailsModellist.length,
           itemBuilder: (context,index){
-            return  Container(child:
-            Padding(
+            return  Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(widget.detailsModellist[index].medicineName.toString() +
-                  "\n\n"+widget.detailsModellist[index].medicineDetails.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineIndication.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineUses.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineAlert.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineSideEffects.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineSideSubIndications.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineSideEffectWithOthersMedicine.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineSideEffectForLadies.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineForChild.toString()+
-                  "\n\n"+widget.detailsModellist[index].medicineForContents.toString()+"\n\n"
+              child: Card(
+                elevation: 15,
+                child: Column(
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(widget.detailsModellist[index].medicineName.toString(),
+                          style:TextStyle(color: Colors.redAccent,fontSize: 20,fontWeight: FontWeight.bold) ,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(widget.detailsModellist[index].medicineImage.toString(),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineDetails.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineIndication.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineUses.toString(),
+                          style:TextStyle(fontSize: 12,)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineAlert.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineSideEffects.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineSideSubIndications.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineSideEffectWithOthersMedicine.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineSideEffectForLadies.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineForChild.toString(),
+            style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.detailsModellist[index].medicineForContents.toString(),
+                          style:TextStyle(fontSize: 12,)
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            )
             );
+
+
           }
       )
     );

@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:bivioonrogochikissa/model/categorymodel.dart';
 import 'package:bivioonrogochikissa/view/about.dart';
 import 'package:bivioonrogochikissa/view/details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key}) : super(key: key);
@@ -18,6 +20,7 @@ class _CategoryPageState extends State<CategoryPage> {
     final jsonProduct = await rootBundle.loadString("jsonData/medicineInfo.json");
     final list = json.decode(jsonProduct) as List<dynamic>;
     return list.map((e) => CategoryModel.fromJson(e)).toList();
+
   }
 
   @override
@@ -25,7 +28,7 @@ class _CategoryPageState extends State<CategoryPage> {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text("Category"),
+        title: Text("রোগের ধরন"),
         centerTitle: true,
         actions: [
           IconButton(
@@ -33,7 +36,12 @@ class _CategoryPageState extends State<CategoryPage> {
               Icons.share_sharp,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: ()async {
+              final url='https://play.google.com';
+              if(await canLaunch(url)){
+              await launch(url);
+              }
+            },
           ),
           PopupMenuButton(
             onSelected: (val){
@@ -55,7 +63,25 @@ class _CategoryPageState extends State<CategoryPage> {
                   break;
 
                 case "exit":
-
+                  (
+                      showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Close App'),
+                          content: const Text('Do you really want to EXIT?'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'Cancel'),
+                              child: const Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () => exit(0),
+                              child: const Text('Yes'),
+                            ),
+                          ],
+                        ),
+                      )
+                  );
                   break;
 
 
@@ -72,6 +98,7 @@ class _CategoryPageState extends State<CategoryPage> {
                   ),
                   PopupMenuItem(
                       child: Text("Exit"),
+
                     value: "exit",
                   ),
 
@@ -118,7 +145,7 @@ class _CategoryPageState extends State<CategoryPage> {
           else{
             return Center(
               child: Container(
-                child: Text("Loading......"),
+                child: Text('Loading...')
               ),
             );
           }

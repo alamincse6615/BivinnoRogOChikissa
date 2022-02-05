@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutUS extends StatefulWidget {
   String topic;
@@ -15,24 +17,216 @@ class _AboutUSState extends State<AboutUS> {
       appBar: AppBar(
         title: widget.topic=="about"?Text("About Page"):Text("Privacy Policy")
       ),
-      body: widget.topic=="about"?Column(
-        children: [
-          CircleAvatar(
-            backgroundImage: AssetImage('images/profile.jpg'),
-          ),
-          Text("Khondokar Arafat"),
-          Text('Flutter App Developer'),
-          Row(
-            children: [
-              IconButton(onPressed: (){}, icon:Icon(Icons.face)),
-              IconButton(onPressed: (){}, icon:Icon(Icons.face)),
-              IconButton(onPressed: (){}, icon:Icon(Icons.face)),
-            ],
-          )
+      body: widget.topic=="about"?ListView(
+        children:[ Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Card(
+            elevation: 15,
+            child: Column(
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('images/profile.jpg'),
+                ),
+                Text("Khondokar Arafat"),
+                Text('Flutter App Developer'),
+                Text('ID-A3-1883'),
+                Divider(height: 8,),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(child: FaIcon(FontAwesomeIcons.facebook),onTap: ()async{
+                        final url='https://www.facebook.com/arafatkh999';
+                        if(await canLaunch(url)){
+                          await launch(url);
+                        }
 
-        ],
-      ):Column(children: [
-        Text("")
+                      },),
+                      InkWell(child: FaIcon(FontAwesomeIcons.github),onTap: ()async{
+                        final url='https://github.com/arafatkh999';
+                        if(await canLaunch(url)){
+                        await launch(url);
+                        }
+                      },),
+                      InkWell(child: FaIcon(FontAwesomeIcons.linkedin),onTap: ()async{
+                        final url='https://www.linkedin.com/in/arafatkh999';
+                        if(await canLaunch(url)){
+                        await launch(url);
+                        }
+                      },),
+                      InkWell(child: FaIcon(FontAwesomeIcons.envelope),onTap: ()async{
+                        final url='https://www.arafatkh999@gmail.com';
+                        if(await canLaunch(url)){
+                        await launch(url);
+                        }
+                      },),
+
+                    ],
+                  ),
+                )
+
+              ],
+            ),
+          ),
+        ),
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Card(
+              elevation: 15,
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage('images/labib.jpg'),
+                  ),
+                  Text("Labib Ashab"),
+                  Text('Flutter App Developer'),
+                  Text('ID-A3-1891'),
+                  Divider(height: 8,),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(child: FaIcon(FontAwesomeIcons.facebook),onTap: ()async{
+                          final url='https://www.facebook.com/ashablabib';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.github),onTap: ()async{
+                          final url='http://github.com/labibashab';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.linkedin),onTap: ()async{
+                          final url='https://www.linkedin.com/in/labib-ashab-530965230';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.envelope),onTap: ()async{
+                          final url='https://www.mdlabibashab1@gmail.com';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+
+                      ],
+                    ),
+                  )
+
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Card(
+              elevation: 15,
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage('images/niloy.jpg'),
+                  ),
+                  Text("Niloy Biswas"),
+                  Text('Flutter App Developer'),
+                  Text('ID-A3-1883'),
+                  Divider(height: 8,),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(child: FaIcon(FontAwesomeIcons.facebook),onTap: ()async{
+                          final url='https://www.facebook.com/niloy.biswas.184881';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.github),onTap: ()async{
+                          final url='http://github.com/biswasniloy';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.linkedin),onTap: ()async{
+                          final url='https://www.linkedin.com/feed/?trk=cold_join_sign_in';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.envelope),onTap: ()async{
+                          final url='https://www.arafatkh999@gmail.com';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+
+                      ],
+                    ),
+                  )
+
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Card(
+              elevation: 15,
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage('images/ap.jpg'),
+                  ),
+                  Text("Apurba Kundu"),
+                  Text('Flutter App Developer'),
+                  Text('ID-A3-1884'),
+                  Divider(height: 8,),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(child: FaIcon(FontAwesomeIcons.facebook),onTap: ()async{
+                          final url='https://www.facebook.com/apurba.mankind';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.github),onTap: ()async{
+                          final url='https://github.com/apurba888';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.linkedin),onTap: ()async{
+                          final url='https://www.linkedin.com/in/apurba-kundu-193896230';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+                        InkWell(child: FaIcon(FontAwesomeIcons.envelope),onTap: ()async{
+                          final url='https://www.arafatkh999@gmail.com';
+                          if(await canLaunch(url)){
+                            await launch(url);
+                          }
+                        },),
+
+                      ],
+                    ),
+                  )
+
+                ],
+              ),
+            ),
+          ),
+    ]
+      ):
+
+      Column(children: [
+        Text('')
       ],),
 
     );

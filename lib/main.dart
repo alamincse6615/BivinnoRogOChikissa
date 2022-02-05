@@ -33,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), (){
+    Timer(Duration(seconds: 2), (){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>CategoryPage()));
     });
     // TODO: implement initState
@@ -42,8 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-       backgroundColor: Color(0xff00a8ff),
-          body:Center(child: Image.asset("images/logo.png"))
+       backgroundColor: Color(0xff4e6565),
+          body:Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset("images/applogo.png",height: 220,width: 200,),
+              Text('DocHelp',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)
+            ],
+          ),
+
+          )
       );
   }
 
