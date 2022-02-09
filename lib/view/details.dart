@@ -35,65 +35,78 @@ class _DetailsState extends State<Details> {
                         ),
                       ),
                     ),
+                    if(widget.detailsModellist[index].medicineImage.toString()!=null&& widget.detailsModellist[index].medicineImage.toString().length>3)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(widget.detailsModellist[index].medicineImage.toString(),
                       ),
                     ),
+                    if(widget.detailsModellist[index].medicineDetails.toString()!=null&& widget.detailsModellist[index].medicineDetails.toString().length>3)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineDetails.toString(),
                           style:TextStyle(fontSize: 12,)
                       ),
                     ),
+                    if(widget.detailsModellist[index].medicineIndication.toString()!=null&& widget.detailsModellist[index].medicineIndication.toString().length>3)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineIndication.toString(),
                           style:TextStyle(fontSize: 12,)
                       ),
                     ),
+                    if(widget.detailsModellist[index].medicineUses.toString()!=null&& widget.detailsModellist[index].medicineUses.toString().length>3)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineUses.toString(),
                           style:TextStyle(fontSize: 12,)),
                     ),
+                    if(widget.detailsModellist[index].medicineAlert.toString()!=null&& widget.detailsModellist[index].medicineAlert.toString().length>3)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineAlert.toString(),
                           style:TextStyle(fontSize: 12,)
                       ),
                     ),
+                    if(widget.detailsModellist[index].medicineSideEffects.toString()!=null&& widget.detailsModellist[index].medicineSideEffects.toString().length>3)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineSideEffects.toString(),
                           style:TextStyle(fontSize: 12,)
                       ),
                     ),
-                    Padding(
+                    if(widget.detailsModellist[index].medicineSideSubIndications.toString()!=null&& widget.detailsModellist[index].medicineSideSubIndications.toString().length>3)
+                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineSideSubIndications.toString(),
                           style:TextStyle(fontSize: 12,)
                       ),
                     ),
+                    if(widget.detailsModellist[index].medicineSideEffectWithOthersMedicine.toString()!=null&& widget.detailsModellist[index].medicineSideEffectWithOthersMedicine.toString().length>3)
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineSideEffectWithOthersMedicine.toString(),
                           style:TextStyle(fontSize: 12,)
                       ),
                     ),
-                    Padding(
+                    if(widget.detailsModellist[index].medicineSideEffectForLadies.toString()!=null&& widget.detailsModellist[index].medicineSideEffectForLadies.toString().length>3)
+
+                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineSideEffectForLadies.toString(),
                           style:TextStyle(fontSize: 12,)
                       ),
                     ),
-                    Padding(
+                    if(widget.detailsModellist[index].medicineForChild.toString()!=null && widget.detailsModellist[index].medicineForChild.toString().length>3)
+
+                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineForChild.toString(),
-            style:TextStyle(fontSize: 12,)
+                        style:TextStyle(fontSize: 12,)
                       ),
                     ),
-                    Padding(
+                    if(widget.detailsModellist[index].medicineForContents.toString()!=null && widget.detailsModellist[index].medicineForContents.toString().length>3)
+                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(widget.detailsModellist[index].medicineForContents.toString(),
                           style:TextStyle(fontSize: 12,)
@@ -103,8 +116,6 @@ class _DetailsState extends State<Details> {
                 ),
               ),
             );
-
-
           }
       )
     );

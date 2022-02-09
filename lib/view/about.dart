@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+
 
 class AboutUS extends StatefulWidget {
   String topic;
@@ -11,6 +17,8 @@ class AboutUS extends StatefulWidget {
 }
 
 class _AboutUSState extends State<AboutUS> {
+  late WebViewController _controller;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -242,10 +250,24 @@ class _AboutUSState extends State<AboutUS> {
     ]
       ):
 
-      Column(children: [
-        Text('')
-      ],),
+      Container(
+        child: WebView(
+          initialUrl: 'about:blank',
+          onWebViewCreated: (WebViewController webViewController) {
+            _controller = webViewController;
+            _loadHtmlFromAssets();
+          },
+        ),
+      ),
 
     );
+  }
+  _loadHtmlFromAssets() async {
+    String fileText = await rootBundle.loadString('assets/privacy.html');
+    _controller.loadUrl( Uri.dataFromString(
+        fileText,
+        mimeType: 'text/html',
+        encoding: Encoding.getByName('utf-8')
+    ).toString());
   }
 }

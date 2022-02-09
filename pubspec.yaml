@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.0.18
   font_awesome_flutter: ^9.2.0
   flutter_share: ^2.0.0
+  webview_flutter: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,7 @@ flutter:
     - images/ap.jpg
     - jsonData/medicineInfo.json
     - midpic/
+    - assets/privacy.html
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

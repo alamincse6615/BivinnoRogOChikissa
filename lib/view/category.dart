@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'alertpage.dart';
+
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key}) : super(key: key);
 
@@ -26,10 +28,9 @@ class _CategoryPageState extends State<CategoryPage> {
 
   Future<void> share() async {
     await FlutterShare.share(
-        title: 'Example share',
-        text: 'Example share text',
+        title: 'DocHelp is an app that helps you to find medicine for all kinds of diseases.',
         linkUrl: 'https://play.google.com/store/apps/details?id=com.ninty.bivioonrogochikissa',
-        chooserTitle: 'Example Chooser Title'
+
     );
   }
 
@@ -140,10 +141,26 @@ class _CategoryPageState extends State<CategoryPage> {
                         trailing: Icon(Icons.arrow_forward_ios,color: Colors.black,),
                       ),
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Details(
-                            list[index].name.toString(),
-                            list[index].detailsModellist!
-                        )));
+                        print(list.length);
+                        if(index==0){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Alert(
+                              list[index].name.toString(),
+                              list[index].detailsModellist![index].medicineDetails.toString()
+                          )));
+                        }
+                        else if (index==list.length-1){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Alert(
+                              list[index].name.toString(),
+                              list[index].detailsModellist![0].medicineDetails.toString()
+                          )));
+                        }
+                        else{
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Details(
+                              list[index].name.toString(),
+                              list[index].detailsModellist!
+                          )));
+                        }
+
                       },
                     ),
                   );
